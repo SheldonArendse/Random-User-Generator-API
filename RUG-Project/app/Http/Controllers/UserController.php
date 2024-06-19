@@ -109,4 +109,25 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('SUCCESS!', 'User deleted successfully.');
     }
+
+
+    public function storeRandom()
+    {
+        $client = new Client();
+        $response = $client->get('https://randomuser.me/api/');
+        $data = json_decode($response->getBody(), true);
+
+        $randomUser = $data['results'][0];
+
+        // Store the user data
+        $user = new User();
+        $user->name = $randomUser['name']['first'] . ' ' . $randomUser['name']['last'];
+        $user->email = $randomUser['email'];
+        $user->phone = $randomUser['phone'];
+        // remove this after password bug is fixed
+        $user->password = bcrypt('defaultpassword');
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'Random user created successfully.');
+    }
 }
