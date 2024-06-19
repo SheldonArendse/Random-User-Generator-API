@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use GuzzleHttp\Client;
 
 class UserController extends Controller
 {
@@ -14,7 +15,7 @@ class UserController extends Controller
         $users = User::all();
 
         // return the user data to the view
-        return view('users.index', ['users' => $users]);
+        return view('users.index', compact('users'));
     }
 
     // Create a new user
@@ -27,21 +28,39 @@ class UserController extends Controller
     // Store a newly created user in DB
     public function store(Request $request)
     {
-        // Check the requested data
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|string|max:10',
         ]);
 
-        // Create a new user object
-        $user = new User();
+        if ($request->has(['name', 'email', 'phone'])) {
+            // Use manually inputted data
+            $user = new User();
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->phone = $request->input('phone');
+        } else {
+            // Fetch user data from API
+            $client = new Client();
+            $response = $client->get('https://randomuser.me/api/');
+            $data = json_decode($response->getBody(), true);
 
-        $user->name = $validatedData['name'];
-        $user->email = $validatedData['email'];
+            $randomUser = $data['results'][0];
+
+            // Storing the user
+            $user = new User();
+            $user->name = $randomUser['name']['first'] . ' ' . $randomUser['name']['last'];
+            $user->email = $randomUser['email'];
+            $user->phone = $randomUser['phone'];
+        }
+
+        // Provide default password in the meanwhile bc of error
+        $user->password = bcrypt('defaultpassword');
         $user->save();
 
-        // return success message
-        return redirect()->route('users.index')->with('success', 'User created successfully!');
+        // Show success message on index page
+        return redirect()->route('users.index')->with('SUCCESS!', 'User created successfully.');
     }
 
 
@@ -52,7 +71,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         // return specified user to the "show" view
-        return view('users.show', ['user' => $user]);
+        return view('users.show', compact('user'));
     }
 
     // Edit user by ID
@@ -60,26 +79,26 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('users.edit', ['user' => $user]);
+        return view('users.edit', compact('user'));
     }
 
 
     // Update user by ID
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . $id,
+            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+            'phone' => 'required|string|max:15',
         ]);
 
-        // Fetch user by ID and update details
         $user = User::findOrFail($id);
-
-        $user->name = $validatedData['name'];
-        $user->email = $validatedData['email'];
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->phone = $request->input('phone');
         $user->save();
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+        return redirect()->route('users.index')->with('SUCCESS!', 'User updated successfully.');
     }
 
     // Delete user by ID
@@ -88,6 +107,6 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        return redirect()->route('users.index')->with('SUCCESS!', 'User deleted successfully.');
     }
 }

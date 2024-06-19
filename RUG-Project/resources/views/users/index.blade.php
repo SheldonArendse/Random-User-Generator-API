@@ -1,9 +1,7 @@
-
 @extends('layouts.app')
 
 @section('content')
     <h1>Users List</h1>
-
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -17,6 +15,7 @@
             <tr>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Phone</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,6 +24,7 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
+                    <td>{{ $user->phone }}</td>
                     <td>
                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-info">View</a>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-primary">Edit</a>

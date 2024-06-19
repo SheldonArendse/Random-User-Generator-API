@@ -30,6 +30,11 @@
             <input type="password" name="password" id="password" class="form-control" value="{{ old('password') }}" required>
         </div>
 
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" class="form-control" required>
+        </div>
+
         <button type="submit" class="btn btn-primary">Create</button>
     </form>
 @endsection
