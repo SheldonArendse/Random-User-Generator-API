@@ -29,15 +29,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'title' => 'required|string|max:10',
             'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone' => 'required|string|max:10',
+            'phone' => 'required|string|max:15',
         ]);
 
         if ($request->has(['name', 'email', 'phone'])) {
             // Use manually inputted data
             $user = new User();
+            $user->title = $request->input('title');
             $user->name = $request->input('name');
+            $user->surname = $request->input('surname');
             $user->email = $request->input('email');
             $user->phone = $request->input('phone');
         } else {
@@ -87,13 +91,17 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'title' => 'required|string|max:10',
             'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'phone' => 'required|string|max:15',
         ]);
 
         $user = User::findOrFail($id);
+        $user->title = $request->input('title');
         $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
         $user->save();
@@ -121,13 +129,14 @@ class UserController extends Controller
 
         // Store the user data
         $user = new User();
-        $user->name = $randomUser['name']['first'] . ' ' . $randomUser['name']['last'];
+        $user->title = $randomUser['name']['title'];
+        $user->name = $randomUser['name']['first'];
+        $user->surname = $randomUser['name']['last'];
         $user->email = $randomUser['email'];
         $user->phone = $randomUser['phone'];
-        // remove this after password bug is fixed
         $user->password = bcrypt('defaultpassword');
         $user->save();
 
-        return redirect()->route('users.index')->with('success', 'Random user created successfully.');
+        return redirect()->route('users.index')->with('SUCCESS!', 'Random user created successfully.');
     }
 }

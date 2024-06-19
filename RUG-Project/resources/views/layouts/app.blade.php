@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Laravel App</title>
-    {{-- add css --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <div class="container">
