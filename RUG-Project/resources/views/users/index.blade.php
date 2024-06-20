@@ -8,12 +8,11 @@
             {{ session('success') }}
         </div>
     @endif
-
-    <a href="{{ route('users.create') }}" class="btn btn-primary mb-2">Add User</a>
-
+    
     <table class="table">
         <thead>
             <tr>
+                <th>Picture</th>
                 <th>Title</th>
                 <th>Name</th>
                 <th>Surname</th>
@@ -25,11 +24,13 @@
         <tbody>
             @foreach ($users as $user)
                 <tr>
+                    <td><img src="{{ $user->picture }}" id="pfp" alt="{{ $user->name }} {{ $user->surname }}" width="80" height="80"></td>
                     <td>{{ $user->title }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->surname }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->phone }}</td>
+
                     <td>
                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-info">View</a>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-primary">Edit</a>
@@ -43,4 +44,10 @@
             @endforeach
         </tbody>
     </table>
+
+    <button type="button" class="btn-style-1" onclick="window.location='{{ route('users.create') }}'">
+        Add a User
+    </button>
 @endsection
+
+

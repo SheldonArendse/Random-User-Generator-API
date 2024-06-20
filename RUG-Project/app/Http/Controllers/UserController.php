@@ -134,6 +134,8 @@ class UserController extends Controller
         $user->surname = $randomUser['name']['last'];
         $user->email = $randomUser['email'];
         $user->phone = $randomUser['phone'];
+        $user->picture = $randomUser['picture']['large'];
+
         $user->password = bcrypt('defaultpassword');
         $user->save();
 

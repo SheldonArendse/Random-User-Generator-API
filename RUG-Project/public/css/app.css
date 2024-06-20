@@ -5,6 +5,9 @@ body {
     padding: 0;
 }
 
+/* ---------------------------------------------------------------------------------------- */
+/* SHOW USER LIST VIEW */
+/* ---------------------------------------------------------------------------------------- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -18,6 +21,7 @@ h1 {
 .table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
 .table th, .table td {
@@ -38,4 +42,59 @@ h1 {
 
 .alert-success {
     background-color: #4CAF50;
+}
+
+.btn-style-1 {
+    border: none;
+    outline: none;
+    border-radius: 100px;
+    box-sizing: border-box;
+    background-color: #0A66C2;
+    text-decoration: none;
+    align-items: center;
+    border-radius: 100px;
+    
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+
+
+.btn-style-1:hover {
+    background-color: #16437E;
+    color: #ffffff;
+}
+
+#pfp {
+    display: block;
+    margin: auto;
+    border-radius: 50%;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* CREATE USER VIEW */
+/* ---------------------------------------------------------------------------------------- */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.form-container form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
