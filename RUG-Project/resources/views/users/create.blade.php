@@ -18,7 +18,7 @@
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
-                <select name="title" class="form-control" required>
+                <select name="title" class="form-control" id="title-cbx" required>
                     <option value="Mr">Mr</option>
                     <option value="Ms">Ms</option>
                     <option value="Mrs">Mrs</option>
@@ -27,31 +27,33 @@
             </div>
             
             <div class="form-group">
-                <label for="name">First Name</label>
                 <input type="text" name="name" class="form-control" required>
+                <label for="name">First Name</label>
             </div>
 
             <div class="form-group">
-                <label for="surname">Surname</label>
                 <input type="text" name="surname" class="form-control" required>
+                <label for="surname">Surname</label>
             </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
+            <div class="form-group">  
                 <input type="email" name="email" class="form-control" required>
+                <label for="email">Email</label>
             </div>
 
-            <div class="form-group">
-                <label for="phone">Phone</label>
+            <div class="form-group">  
                 <input type="text" name="phone" class="form-control" required>
+                <label for="phone">Phone</label>
             </div>
 
-            <button type="submit" class="btn-style-1">Create User</button>
-        </form>
+        <div class="button-container">
+                <button type="submit" class="btn-style-1">Create User</button>
+            </form>
 
-        <form action="{{ route('users.storeRandom') }}" method="POST" style="margin-top: 20px;">
-            @csrf
-            <button type="submit" class="btn-style-1"> Add Random User </button>
-        </form>
+            <form action="{{ route('users.storeRandom') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn-style-1">Add Random User</button>
+            </form>
+        </div>
     </div>
 @endsection
