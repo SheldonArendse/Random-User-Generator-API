@@ -25,3 +25,7 @@
 #btn-update {
     width: 433px;
 }
+
+#btn-back {
+    transform: translate(-100%);
+}

@@ -7,11 +7,19 @@
         {{-- link css  --}}
         <link rel="stylesheet" href="css/nav.css">
 
-        <title>Welcome</title>
+        <title>Random User | Welcome</title>
 
         {{-- embedded css --}}
         <style>
-
+            body {
+            background-image: url('{{ asset('images/welcome-bg3.jpg') }}');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
         </style>
     </head>
 

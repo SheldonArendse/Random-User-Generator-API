@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<button type="button" class="btn-style-1" id="btn-back" onclick="window.location='{{ route('users.index') }}'">
+    <
+</button>
+
     <div class="edit-form">
-        <h1 id="edit-user-title">Edit Profile</h1>
+        <h1 id="edit-user-title">Edit User</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
