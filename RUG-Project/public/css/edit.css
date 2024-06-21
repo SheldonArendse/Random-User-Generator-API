@@ -1,0 +1,27 @@
+/* ---------------------------------------------------------------------------------------- */
+/* EDIT USER VIEW */
+/* ---------------------------------------------------------------------------------------- */
+#label-style-1 {
+    font-weight: bold;
+    color: #0A66C2;
+    font-size: 1.2em;
+}
+
+.edit-form {
+    padding-top: 20px;
+    max-width: 36%;
+    margin-left: 30%;
+}
+
+#form-group-edit input{
+    color: rgba(0, 0, 0, 0.39);
+}
+
+#edit-user-title {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#btn-update {
+    width: 433px;
+}

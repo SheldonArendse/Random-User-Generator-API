@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="edit-form">
-        <h1 id="edit-user-title">Edit User</h1>
+        <h1 id="edit-user-title">Edit Profile</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -48,7 +48,7 @@
                 <label for="phone" id="label-style-1">Phone:</label>
             </div>
 
-            <button type="submit" class="btn-style-1">Update</button>
+            <button type="submit" class="btn-style-1" id="btn-update">Update</button>
         </form>
     </div>
 @endsection
