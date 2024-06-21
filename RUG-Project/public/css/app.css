@@ -11,19 +11,26 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding-bottom: 20px;
 }
 
 h1 {
-    color: #333;
+    background-color: #000764;
+    border-radius: 30px;
+    color: #fff;
     font-size: 2.5em;
     margin-bottom: 0;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    align-items: center;
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .table th, .table td {
@@ -32,7 +39,8 @@ h1 {
 }
 
 .table th {
-    background-color: #d3d3d3;
+    background-color: #9cd0e7;
+    font-size: 1.2em;
 }
 
 .alert {
@@ -50,6 +58,24 @@ h1 {
     display: block;
     margin: auto;
     border-radius: 50%;
+}
+
+#btn-action {
+    background-color: #129717;
+}
+
+#btn-delete {
+    background-color: #f32718;
+}
+
+#btn-action:hover {
+    background-color: #0d6410;
+    color: #ffffff;
+}
+
+#btn-delete:hover {
+    background-color: #a71a0f;
+    color: #ffffff;
 }
 
 /* ---------------------------------------------------------------------------------------- */

@@ -27,5 +27,6 @@
 }
 
 #btn-back {
+    margin-top: 20px;
     transform: translate(-100%);
 }

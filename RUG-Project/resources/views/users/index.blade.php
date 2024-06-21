@@ -1,8 +1,9 @@
 @extends('layouts.app')
+<title>Random User | User List</title>
 
 @section('content')
-    <h1>Users List</h1>
-
+    <h1>List of Users</h1>
+    
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -32,12 +33,12 @@
                     <td>{{ $user->phone }}</td>
 
                     <td>
-                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-sm btn-info">View</a>
-                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{ route('users.show', $user->id) }}" class="btn-style-1" id="btn-action">View</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn-style-1" id="btn-action">Edit</a>
                         <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                            <button type="submit" class="btn-style-1" id="btn-delete" onclick="return confirm('Are you sure?')">Delete</button>
                         </form>
                     </td>
                 </tr>
