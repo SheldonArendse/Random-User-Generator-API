@@ -1,7 +1,11 @@
 @extends('layouts.app')
+    <head>
+        <title>{{ $user->name }} {{ $user->surname }} | View Profile</title>
+    </head>
 
 @section('content')
-    <h1 id="details-heading">User Details</h1>
+
+    <h1 id="details-heading">{{ $user->name }} {{ $user->surname }}</h1>
 
     <div class="pfp-container">
         <div class="card">

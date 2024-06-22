@@ -1,4 +1,7 @@
 @extends('layouts.app')
+    <head>
+        <title>{{ $user->name }} {{ $user->surname }} | Edit Profile</title>
+    </head>
 
 @section('content')
 <style>

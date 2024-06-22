@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+    <head>
+        <title>Random User | Create Profile</title>
+    </head>
 @section('content')
 
 <style>
