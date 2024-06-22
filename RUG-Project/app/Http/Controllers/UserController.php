@@ -36,7 +36,7 @@ class UserController extends Controller
             'phone' => 'required|string|max:15',
         ]);
 
-        if ($request->has(['name', 'email', 'phone'])) {
+        if ($request->has(['title', 'name', 'surname', 'email', 'phone'])) {
             // Use manually inputted data
             $user = new User();
             $user->title = $request->input('title');
@@ -136,7 +136,7 @@ class UserController extends Controller
         $user->phone = $randomUser['phone'];
         $user->picture = $randomUser['picture']['large'];
 
-        $user->password = bcrypt('defaultpassword');
+        // $user->password = bcrypt('defaultpassword');
         $user->save();
 
         return redirect()->route('users.index')->with('SUCCESS!', 'Random user created successfully.');
