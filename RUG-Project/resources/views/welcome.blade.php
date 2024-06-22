@@ -35,7 +35,7 @@
 
         <div class="welcome-box">
             <h1 class="title">Welcome to Random User Generator</h1>
-            <p>Our application allows you to effortlessly manage and view user 
+            <p>This application allows you to effortlessly manage and view user 
                 profiles with ease. Whether you're looking to create a new user, 
                 view detailed profiles, or generate random users for testing, 
                 we've got you covered.

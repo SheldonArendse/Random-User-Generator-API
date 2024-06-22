@@ -13,11 +13,13 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 20px 30px;
     background-color: rgb(210, 223, 223);
+    border-radius: 30px;
 }
 
 .card-body {
     display: flex;
     align-items: center;
+    font-size: 1.1em;
 }
 
 .profile-image {
