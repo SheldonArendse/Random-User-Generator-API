@@ -1,8 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="form-container">
-        <h1>Create User</h1>
+
+<style>
+    body {
+    background-image: url('{{ asset('images/mountain-bg.jpg') }}');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+</style>
+
+    <div class="form-container" id="create-user-container">
+        <h1 id="create-heading">Create User</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">

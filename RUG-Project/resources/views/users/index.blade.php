@@ -24,8 +24,14 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-                <tr>
-                    <td><img src="{{ $user->picture }}" id="pfp" alt="{{ $user->name }} {{ $user->surname }}" width="80" height="80"></td>
+                
+            <td>
+                @if ($user->picture)
+                    <img src="{{ $user->picture }}" id="pfp" alt="{{ $user->name }} {{ $user->surname }}" width="80" height="80">
+                @else
+                    <img src="{{ asset('images/default-pfp.jpg') }}" id="pfp" alt="Default Image" width="80" height="80">
+                @endif
+            </td>
                     <td>{{ $user->title }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->surname }}</td>

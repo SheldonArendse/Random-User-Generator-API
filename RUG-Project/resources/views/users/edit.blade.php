@@ -1,11 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body {
+    background-image: url('{{ asset('images/mountain-bg.jpg') }}');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+</style>
 <button type="button" class="btn-style-1" id="btn-back" onclick="window.location='{{ route('users.index') }}'">
-    <
+    < Back
 </button>
 
-    <div class="edit-form">
+    <div class="edit-form" id="edit-user-container">
         <h1 id="edit-user-title">Edit User</h1>
 
         @if ($errors->any())
@@ -23,7 +35,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="title" id="label-style-1">Title</label>
+                <label for="title" id="label-style-1">Title:</label>
                 <select name="title" class="form-control" id="title-cbx" required>
                     <option value="Mr" {{ $user->title == 'Mr' ? 'selected' : '' }}>Mr</option>
                     <option value="Ms" {{ $user->title == 'Ms' ? 'selected' : '' }}>Ms</option>

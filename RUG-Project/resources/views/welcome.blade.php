@@ -6,6 +6,7 @@
 
         {{-- link css  --}}
         <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/welcome.css">
 
         <title>Random User | Welcome</title>
 
@@ -31,6 +32,27 @@
                 <a href="#" onclick="window.location='{{ route('users.create') }}'">Create User</a>
             </nav>
         </header>
-        
+
+        <div class="welcome-box">
+            <h1 class="title">Welcome to Random User Generator</h1>
+            <p>Our application allows you to effortlessly manage and view user 
+                profiles with ease. Whether you're looking to create a new user, 
+                view detailed profiles, or generate random users for testing, 
+                we've got you covered.
+                <br> <br>
+                <div class="features-title">
+                    <strong><u>Features Include:</u></strong>
+                </div>
+                <div class="features">
+                    <br>- Create User Profiles
+                    <br>- View User Profiles
+                    <br>- Generate Random Users
+                    <br>- Edit Profiles
+                </div>
+            </p>
+
+            
+        </div>
+
     </body>
 </html>

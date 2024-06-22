@@ -1,0 +1,28 @@
+.welcome-box {
+    background-color: rgba(0, 0, 0, 0.651);
+    text-align: center;
+    padding: 30px 70px;
+    width: 50%;
+    border-radius: 20px;
+    font-family:sans-serif;
+    color: #fff;
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.welcome-box p {
+    font-size: 1.3em;
+}
+
+.features-title {
+    font-size: 1.5em;
+}
+
+.features {
+    font-size: 1.3em;
+}
+

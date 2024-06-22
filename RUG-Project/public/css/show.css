@@ -1,0 +1,36 @@
+.pfp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    align-items: flex-start;
+    padding-top: 40px;
+}
+
+.card {
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px 30px;
+    background-color: rgb(210, 223, 223);
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+}
+
+.profile-image {
+    margin-right: 50px;
+}
+
+#show-pfp {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+}
+
+.profile-details {
+    flex: 1;
+}

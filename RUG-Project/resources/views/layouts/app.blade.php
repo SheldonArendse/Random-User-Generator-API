@@ -4,6 +4,8 @@
     <title>Random User Generator</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/edit.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/create.css') }}">
 </head>
 <body>
     <div class="container">
