@@ -104,7 +104,7 @@ class UserController extends Controller
 
         // If a user has a pfp then delete it and save the new pfp
         if ($request->hasFile('picture')) {
-            if ($user->picture) {
+            if ($user->picture && !filter_var($user->picture, FILTER_VALIDATE_URL)) {
                 Storage::delete($user->picture);
             }
 
@@ -119,8 +119,9 @@ class UserController extends Controller
         $user->phone = $request->input('phone');
         $user->save();
 
-        return redirect()->route('users.index')->with('SUCCESS!', 'User updated successfully.');
+        return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
+
 
     // Delete user by ID
     public function destroy($id)

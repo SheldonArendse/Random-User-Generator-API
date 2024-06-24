@@ -38,10 +38,10 @@
         @method('PUT')
 
         <div class="profile-image-container">
-            @if ($user->picture)
-                <img src="{{ Storage::url($user->picture) }}" id="show-pfp" alt="{{ $user->name }} {{ $user->surname }}">
+            @if (filter_var($user->picture, FILTER_VALIDATE_URL))
+                <img src="{{ $user->picture }}" id="show-pfp" alt="{{ $user->name }} {{ $user->surname }}">
             @else
-                <img src="{{ asset('images/default-pfp.jpg') }}" id="show-pfp" alt="Default Image">
+                <img src="{{ $user->picture ? Storage::url($user->picture) : asset('images/default-pfp.jpg') }}" id="show-pfp" alt="{{ $user->name }} {{ $user->surname }}">
             @endif
             <input type="file" name="picture" id="picture" class="form-control">
         </div>
