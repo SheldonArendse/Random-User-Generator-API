@@ -2,7 +2,7 @@
 <title>Random User | User List</title>
 
 @section('content')
-    <h1>List of Users</h1>
+    <h1 id="list-header">List of Users</h1>
     
     @if (session('success'))
         <div class="alert alert-success">
@@ -55,6 +55,18 @@
     <button type="button" class="btn-style-1" onclick="window.location='{{ route('users.create') }}'">
         Add a User
     </button>
+
+    <style>
+        body {
+        background-image: url('{{ asset('images/dark-beach.jpg') }}');
+        background-size: cover; 
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    </style>
 @endsection
 
 

@@ -26,11 +26,16 @@ h1 {
     align-items: center;
 }
 
+#list-header {
+    background-color: #0A66C2;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
     margin-top: 20px;
+    background-color: #e7e6e6;
 }
 
 .table th, .table td {
@@ -40,7 +45,7 @@ h1 {
 
 .table th {
     background-color: #9cd0e7;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .alert {

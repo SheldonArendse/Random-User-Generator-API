@@ -97,7 +97,6 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'phone' => 'required|string|max:15',
         ]);
-
         $user = User::findOrFail($id);
         $user->title = $request->input('title');
         $user->name = $request->input('name');
@@ -136,7 +135,7 @@ class UserController extends Controller
         $user->phone = $randomUser['phone'];
         $user->picture = $randomUser['picture']['large'];
 
-        // $user->password = bcrypt('defaultpassword');
+        $user->password = bcrypt('defaultpassword');
         $user->save();
 
         return redirect()->route('users.index')->with('SUCCESS!', 'Random user created successfully.');
