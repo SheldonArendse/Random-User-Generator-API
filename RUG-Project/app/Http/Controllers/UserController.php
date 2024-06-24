@@ -64,7 +64,7 @@ class UserController extends Controller
         $user->save();
 
         // Show success message on index page
-        return redirect()->route('users.index')->with('SUCCESS!', 'User created successfully.');
+        return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
 
 
@@ -105,7 +105,7 @@ class UserController extends Controller
         $user->phone = $request->input('phone');
         $user->save();
 
-        return redirect()->route('users.index')->with('SUCCESS!', 'User updated successfully.');
+        return redirect()->route('users.index')->with('success', 'User updated successfully.');
     }
 
     // Delete user by ID
@@ -114,7 +114,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('SUCCESS!', 'User deleted successfully.');
+        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
     }
 
 
@@ -138,6 +138,6 @@ class UserController extends Controller
         $user->password = bcrypt('defaultpassword');
         $user->save();
 
-        return redirect()->route('users.index')->with('SUCCESS!', 'Random user created successfully.');
+        return redirect()->route('users.index')->with('success', 'Random user created successfully.');
     }
 }
