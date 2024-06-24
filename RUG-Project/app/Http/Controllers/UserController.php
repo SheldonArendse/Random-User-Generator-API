@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -96,8 +97,21 @@ class UserController extends Controller
             'surname' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'phone' => 'required|string|max:15',
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
         $user = User::findOrFail($id);
+
+        // If a user has a pfp then delete it and save the new pfp
+        if ($request->hasFile('picture')) {
+            if ($user->picture) {
+                Storage::delete($user->picture);
+            }
+
+            $path = $request->file('picture')->store('profile_pictures', 'public');
+            $user->picture = $path;
+        }
+
         $user->title = $request->input('title');
         $user->name = $request->input('name');
         $user->surname = $request->input('surname');

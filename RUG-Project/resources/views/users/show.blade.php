@@ -50,7 +50,6 @@
         body {
             height: 100vh;
             margin: 0;
-            overflow: hidden;
             background: 
                 linear-gradient(to right, rgba(255,0,0,0.5), rgba(0,0,255,0.5)),
                 radial-gradient(circle at center, rgba(0,0,255,0.5), rgba(0, 200, 255, 0.5));
